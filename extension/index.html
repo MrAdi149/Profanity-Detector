@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Profanity Detection</title>
+  </head>
+  <body>
+    <h1>Profanity Detection</h1>
+    <form method="post" action="/check-profanity">
+      <textarea name="text" rows="4" cols="50" placeholder="Enter text to check for profanity"></textarea>
+      <br>
+      <input type="submit" value="Check">
+    </form>
+    <p id="result"></p>
+
+    <script>
+      const form = document.querySelector('form');
+      const resultElement = document.getElementById('result');
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const text = form.elements.text.value;
+
+        // You can implement your profanity check here
+        const isProfanity = checkForProfanity(text);
+
+        if (isProfanity) {
+          resultElement.textContent = 'Profanity found in the text!';
+        } else {
+          resultElement.textContent = 'No profanity found.';
+        }
+      });
+
+      // Implement your profanity check function
+      function checkForProfanity(text) {
+        // Implement your profanity detection logic here
+        // Return true if profanity is found, otherwise return false
+      }
+    </script>
+  </body>
+</html>
